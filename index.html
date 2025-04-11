@@ -51,6 +51,50 @@
       color: #1f1f1f;
     }
 
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      flex-shrink: 0;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 2rem;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 10;
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+
     .price-box {
       background: #fff;
       padding: 20px;
@@ -113,6 +157,19 @@
       <p>Welcome! I offer professional sports massage therapy in a relaxed and friendly environment. Whether you're an athlete or just need help recovering from day-to-day tension, my goal is to help you move and feel your best.</p>
     </section>
 
+    <section>
+      <h2>Gallery</h2>
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="images/massage1.jpg" alt="Massage in progress">
+          <img src="images/massage2.jpg" alt="Treatment room">
+          <img src="images/massage3.jpg" alt="Massage table setup">
+        </div>
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
+      </div>
+    </section>
+
     <section class="price-box">
       <h3>Sports Massage</h3>
       <p>50 minutes – £40</p>
@@ -136,6 +193,26 @@
   <footer>
     &copy; 2025 Reset Body Work. All rights reserved.
   </footer>
-
+  <script>
+    const slide = document.querySelector('.carousel-slide');
+    const images = document.querySelectorAll('.carousel-slide img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+  
+    let counter = 0;
+  
+    nextBtn.addEventListener('click', () => {
+      if (counter >= images.length - 1) return;
+      counter++;
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      if (counter <= 0) return;
+      counter--;
+      slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  </script>
+  
 </body>
 </html>
