@@ -160,7 +160,64 @@
       color: #666;
     }
 
+    .cert-carousel-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 30px auto;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .cert-carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .cert-carousel-slide img {
+      max-height: 550px;
+      width: auto;
+      margin: 0 auto;
+      flex-shrink: 0;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .cert-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 2rem;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 10;
+      border-radius: 50%;
+    }
+
+    .cert-prev {
+      left: 10px;
+    }
+
+    .cert-next {
+      right: 10px;
+    }
+
+
+
+
     @media (max-width: 600px) {
+      .cert-carousel-slide img {
+        max-height: 400px;
+        width: 90%;
+      }
       header h1 {
         font-size: 2rem;
       }
@@ -189,7 +246,7 @@
 
   <header>
     <div class="header-content">
-      <img src="logo.png" alt="Reset Bodywork logo" class="logo">
+      <img src="images/logo.png" alt="Reset Bodywork logo" class="logo">
       <div class="site-title">
         <h1>Reset Bodywork</h1>
         <p>Helping you feel better, move better, and recover faster</p>
@@ -208,9 +265,9 @@
       <h2>Gallery</h2>
       <div class="carousel-container">
         <div class="carousel-slide">
-          <img src="massage1.png" alt="Massage in progress">
-          <img src="massage2.png" alt="Treatment room">
-          <img src="massage3.png" alt="Massage table setup">
+          <img src="images/massage1.png" alt="Massage in progress">
+          <img src="images/massage2.png" alt="Treatment room">
+          <img src="images/massage3.png" alt="Massage table setup">
         </div>
         <button class="carousel-btn prev">&#10094;</button>
         <button class="carousel-btn next">&#10095;</button>
@@ -236,7 +293,19 @@
       
 
   </div>
-
+  <section>
+    <h2>My Qualifications</h2>
+    <div class="cert-carousel-container">
+      <div class="cert-carousel-slide">
+        <img src="images/cert1.jpg" alt="Certificate 1">
+        <img src="images/cert2.jpg" alt="Certificate 2">
+        <img src="images/cert3.jpg" alt="Certificate 3">
+      </div>
+      <button class="cert-carousel-btn cert-prev">&#10094;</button>
+      <button class="cert-carousel-btn cert-next">&#10095;</button>
+    </div>
+  </section>
+  
   <footer>
     &copy; 2025 Reset Body Work. All rights reserved.
   </footer>
@@ -258,6 +327,25 @@
       if (counter <= 0) return;
       counter--;
       slide.style.transform = `translateX(-${counter * 100}%)`;
+    });
+
+    const certSlide = document.querySelector('.cert-carousel-slide');
+    const certImages = document.querySelectorAll('.cert-carousel-slide img');
+    const certPrevBtn = document.querySelector('.cert-prev');
+    const certNextBtn = document.querySelector('.cert-next');
+
+    let certCounter = 0;
+
+    certNextBtn.addEventListener('click', () => {
+      if (certCounter >= certImages.length - 1) return;
+      certCounter++;
+      certSlide.style.transform = `translateX(-${certCounter * 100}%)`;
+    });
+
+    certPrevBtn.addEventListener('click', () => {
+      if (certCounter <= 0) return;
+      certCounter--;
+      certSlide.style.transform = `translateX(-${certCounter * 100}%)`;
     });
   </script>
   
