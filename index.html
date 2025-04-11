@@ -41,6 +41,34 @@
       padding: 40px 20px;
     }
 
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+    }
+
+    .site-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+
+    .site-title p {
+      font-size: 1.1rem;
+      color: #dddddd;
+    }
+
+
+
     section {
       margin-bottom: 40px;
     }
@@ -140,14 +168,33 @@
       h2 {
         font-size: 1.5rem;
       }
+      
+      .header-content {
+        flex-direction: column;
+      }
+
+      .site-title h1 {
+        font-size: 2rem;
+      }
+
+      .site-title p {
+        font-size: 1rem;
+      }
     }
+
+        
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Revive Sports Massage</h1>
-    <p>Helping you feel better, move better, and recover faster</p>
+    <div class="header-content">
+      <img src="logo.png" alt="Reset Bodywork logo" class="logo">
+      <div class="site-title">
+        <h1>Reset Bodywork</h1>
+        <p>Helping you feel better, move better, and recover faster</p>
+      </div>
+    </div>
   </header>
 
   <div class="container">
