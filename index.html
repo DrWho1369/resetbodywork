@@ -175,7 +175,24 @@
     .cert-carousel-slide {
       display: flex;
       transition: transform 0.5s ease-in-out;
+      width: 100%;
     }
+
+    .cert-slide-item {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cert-slide-item img {
+  max-height: 550px;
+  width: auto;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
 
     .cert-carousel-slide img {
       max-height: 550px;
@@ -295,10 +312,10 @@
     <h2>My Qualifications</h2>
     <div class="cert-carousel-container">
       <div class="cert-carousel-slide">
-        <img src="images/certificate1.jpg" alt="Certificate 1">
-        <img src="images/certificate2.jpg" alt="Certificate 2">
-        <img src="images/certificate3.jpg" alt="Certificate 3">
-        <img src="images/certificate4.jpg" alt="Certificate 4">
+       <div> <img src="images/certificate1.jpg" alt="Certificate 1"></div>
+       <div><img src="images/certificate2.jpg" alt="Certificate 2"></div>
+       <div><img src="images/certificate3.jpg" alt="Certificate 3"></div>
+       <div><img src="images/certificate4.jpg" alt="Certificate 4"></div>
       </div>
       <button class="cert-carousel-btn cert-prev">&#10094;</button>
       <button class="cert-carousel-btn cert-next">&#10095;</button>
