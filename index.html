@@ -365,35 +365,33 @@
       }
     }
 
+    /* Top nav - desktop only */
     .nav-links {
-      margin-top: 20px;
+      display: none; /* hide by default (mobile) */
     }
 
-    .nav-links a {
-      margin: 0 12px;
-      color: #ddd;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #00d4ff;
-    }
-
-    @media (max-width: 600px) {
+    @media (min-width: 768px) {
       .nav-links {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 20px;
+        margin-top: 20px;
       }
 
       .nav-links a {
-        margin: 6px;
-        font-size: 0.95rem;
+        margin: 0 12px;
+        color: #ddd;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #00d4ff;
       }
     }
+
+
 
 
 
@@ -410,7 +408,7 @@
         <p>Helping you feel better, move better, and recover faster</p>
       </div>
     
-    <nav class="nav-links">
+    <nav class="nav-links desktop-only">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#qualifications">Qualifications</a>
