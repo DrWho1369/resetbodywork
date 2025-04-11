@@ -6,6 +6,11 @@
   <title>Reset Bodywork</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -329,6 +334,69 @@
       }
     }
 
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #1f1f1f;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .bottom-nav a:hover {
+      color: #00d4ff;
+    }
+
+    @media (min-width: 768px) {
+      .bottom-nav {
+        display: none; /* Hide on desktop */
+      }
+    }
+
+    .nav-links {
+      margin-top: 20px;
+    }
+
+    .nav-links a {
+      margin: 0 12px;
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        margin: 6px;
+        font-size: 0.95rem;
+      }
+    }
+
+
+
         
   </style>
 </head>
@@ -342,11 +410,17 @@
         <p>Helping you feel better, move better, and recover faster</p>
       </div>
     </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#qualifications">Qualifications</a>
+      <a href="#booking">Book</a>
+    </nav>    
   </header>
 
   <div class="container">
 
-    <section>
+    <section id="about">
       <h2>About</h2>
       <p>Welcome! I offer professional sports massage therapy in a relaxed and friendly environment. Whether you're an athlete or just need help recovering from day-to-day tension, my goal is to help you move and feel your best.</p>
       <div class="callout-box">
@@ -367,7 +441,7 @@
     </section>
     <hr class="section-divider">
 
-    <section>
+    <section id="Gallery">
       <h2>Gallery</h2>
       <div class="carousel-container">
         <div class="carousel-slide">
@@ -381,7 +455,7 @@
     </section>
     <hr class="section-divider">
 
-    <section><h2>Bookings</h2></section>
+    <section id="Bookings"><h2>Bookings</h2></section>
     
 
     <section class="price-box">
@@ -401,7 +475,7 @@
       
 <hr class="section-divider">
 
-<section>
+<section id="Qualifications">
   <h2>My Qualifications</h2>
   <p style="margin-bottom: 30px;">
     I’m trained to <strong>Level 3 in Sports Massage Therapy</strong>, which goes beyond the general techniques taught in 
@@ -444,6 +518,14 @@
   <footer>
     &copy; 2025 Reset Body Work. All rights reserved.
   </footer>
+
+  <nav class="bottom-nav">
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#qualifications">Qualifications</a>
+    <a href="#booking">Book</a>
+  </nav>
+  
   <script>
     const slide = document.querySelector('.carousel-slide');
     const images = document.querySelectorAll('.carousel-slide img');
