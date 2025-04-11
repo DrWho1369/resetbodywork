@@ -329,23 +329,25 @@
     });
 
     const certSlide = document.querySelector('.cert-carousel-slide');
-    const certImages = document.querySelectorAll('.cert-carousel-slide img');
-    const certPrevBtn = document.querySelector('.cert-prev');
-    const certNextBtn = document.querySelector('.cert-next');
+  const certImages = document.querySelectorAll('.cert-carousel-slide img');
+  const certPrevBtn = document.querySelector('.cert-prev');
+  const certNextBtn = document.querySelector('.cert-next');
 
-    let certCounter = 0;
+  let certCounter = 0;
 
-    certNextBtn.addEventListener('click', () => {
-      if (certCounter >= certImages.length - 1) return;
-      certCounter++;
-      certSlide.style.transform = `translateX(-${certCounter * 100}%)`;
-    });
+  function updateCertCarousel() {
+    certSlide.style.transform = `translateX(-${certCounter * 100}%)`;
+  }
 
-    certPrevBtn.addEventListener('click', () => {
-      if (certCounter <= 0) return;
-      certCounter--;
-      certSlide.style.transform = `translateX(-${certCounter * 100}%)`;
-    });
+  certNextBtn.addEventListener('click', () => {
+    certCounter = (certCounter + 1) % certImages.length; // Loop forward
+    updateCertCarousel();
+  });
+
+  certPrevBtn.addEventListener('click', () => {
+    certCounter = (certCounter - 1 + certImages.length) % certImages.length; // Loop backward
+    updateCertCarousel();
+  });
   </script>
   
 </body>
