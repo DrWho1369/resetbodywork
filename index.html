@@ -250,6 +250,49 @@
       margin-bottom: 10px;
     }
 
+    .comparison-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #007c8a;
+    }
+
+    .highlighted {
+      border-left: 5px solid #00a2b4;
+      background-color: #eefbfd;
+    }
+
+    .fade-in-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+
 
 
 
@@ -302,7 +345,7 @@
       <h2>About</h2>
       <p>Welcome! I offer professional sports massage therapy in a relaxed and friendly environment. Whether you're an athlete or just need help recovering from day-to-day tension, my goal is to help you move and feel your best.</p>
       <div class="callout-box">
-      <h2>What is Sports Massage?</h2>
+      <h4>What is Sports Massage?</h4>
       <p>
         <strong>Sports massage</strong> is a targeted form of therapy designed to support muscle recovery, reduce tension, and improve mobility. 
         Unlike a spa massage, sports massage uses deeper techniques to treat specific problem areas — perfect for active individuals, gym-goers, or 
@@ -347,12 +390,22 @@
     <strong>Level 2 Therapeutic Massage</strong>.
   </p>
 
-  <ul>
-    <li><strong>Level 2 massage</strong> focuses on basic relaxation, light pressure, and overall wellness.</li>
-    <li><strong>Level 3 sports massage</strong> includes advanced anatomy, injury prevention, deep tissue work, and specific techniques like 
-      <strong>Trigger Point Therapy</strong> — a method that targets and releases tight, painful knots in muscles to restore function and reduce discomfort.
-    </li>
-  </ul>
+  <h3>What’s the Difference?</h3>
+  <p>Here’s how Level 3 Sports Massage compares to standard Level 2 training:</p>
+
+  <div class="fade-in-on-scroll">
+  <div class="comparison-cards">
+    <div class="card">
+      <h4>Level 2 Massage</h4>
+      <p>Focuses on basic relaxation, light pressure, and overall wellness. Great for general stress relief and unwinding.</p>
+    </div>
+    <div class="card highlighted">
+      <h4>Level 3 Sports Massage</h4>
+      <p>Includes advanced anatomy, injury prevention, deep tissue work, and <strong>Trigger Point Therapy</strong> — targeting and releasing muscle knots to restore movement and reduce discomfort.</p>
+    </div>
+  </div>
+  </div>
+  
 
   <div class="callout-box">
     <h4>🔍 What is Trigger Point Therapy?</h4>
@@ -424,6 +477,24 @@
     certCounter = (certCounter - 1 + certImages.length) % certImages.length; // Loop backward
     updateCertCarousel();
   });
+
+  const fadeInElement = document.querySelector('.fade-in-on-scroll');
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        fadeInElement.classList.add('visible');
+        observer.disconnect(); // animation only once
+      }
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  if (fadeInElement) {
+    observer.observe(fadeInElement);
+  }
   </script>
   
 </body>
