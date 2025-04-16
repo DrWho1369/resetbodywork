@@ -307,6 +307,26 @@
       margin-right: auto;
     }
 
+    .map-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+
+
 
     @media (max-width: 600px) {
       .cert-carousel-slide img {
@@ -406,6 +426,7 @@
           <a href="#gallery">Gallery</a>
           <a href="#qualifications">Qualifications</a>
           <a href="#booking">Book</a>
+          <a href="#location">Location</a>
         </nav>  
       </div>
     
@@ -509,6 +530,14 @@
       <button class="cert-carousel-btn cert-next">&#10095;</button>
     </div>
   </section>
+  <section id="location">
+    <h2>Find Me</h2>
+    <p>My massage room is located here — easy to access, quiet, and relaxed.</p>
+    <div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2493.2489884766637!2d-0.2523348999999829!3d51.32494000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875e38e7e075419%3A0x6fb2e8b16dd904f0!2sReset%20Bodywork!5e0!3m2!1sen!2suk!4v1744807077207!5m2!1sen!2suk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</section>
+
 </div>
   <footer>
     &copy; 2025 Reset Body Work. All rights reserved.
@@ -519,6 +548,7 @@
     <a href="#gallery">Gallery</a>
     <a href="#qualifications">Qualifications</a>
     <a href="#booking">Book</a>
+    <a href="#location">Location</a>
   </nav>
  
   
